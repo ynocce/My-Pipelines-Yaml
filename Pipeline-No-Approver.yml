@@ -9,21 +9,21 @@ stages:
     jobs:
       - job: DeployDev
         steps:
-          - script: echo "Realizado Deploy de Dev"
+          - script: echo "Iniciando Deploy de Dev"
             displayName: 'Deploy Dev'
   
   - stage: DeployQa
     jobs:
       - job: DeployQa
         steps:
-          - script: echo "realazado Deploy de Qa"
+          - script: echo "Iniciando Deploy de Qa"
             displayName: 'Deploy Qa'
   
   - stage: DeployProd
     jobs:
       - job: DeployProd
         steps:
-          - script: echo "realizado Deploy de PROD"
+          - script: echo "Iniciando Deploy de PROD"
             displayName: 'Deploy PROD'
 
 
