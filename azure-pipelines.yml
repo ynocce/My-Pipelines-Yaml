@@ -4,11 +4,28 @@ trigger:
 pool:
   vmImage: win-latest
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+stages:
+  - stage: DeployDev 
+    jobs:
+      - job: DeployDev
+        steps:
+          - script: Realizado Deploy de Dev
+            displayName: 'Deploy Dev'
+  
+  - stage: DeployQa
+    jobs:
+      - job: DeployQa
+        steps:
+          - script: relazado Deploy de Qa
+            displayName: 'Deploy Qa'
+  
+  - stage: DeployProd
+    jobs:
+      - job: DeployProd
+        steps:
+          - script: realizado Deploy de PROD
+            displayName: 'Deploy PROD'
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+
+
+
