@@ -2,7 +2,7 @@ trigger:
 - none
 
 pool:
-  vmImage: win-latest
+  vmImage: Win-latest
 
 stages:
   - stage: DeployDev 
