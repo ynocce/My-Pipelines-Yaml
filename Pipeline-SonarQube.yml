@@ -1,10 +1,5 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
 trigger:
-- main
+- none
 
 pool:
   vmImage: windows-latest
@@ -14,10 +9,25 @@ stages:
     jobs:
       - job:
         steps:
-          - script: echo Hello, world!
-            displayName: 'Run a one-line script'
+          - task: SonarQubePrepare@5
+            inputs:
+              scannerMode: 'MSBuild'
+              projectKey: 'Teste-yaml-Sonar'
+              projectName: 'Teste - Sonar'
+          - task: SonarQubePublish@5
+            inputs:
+              pollingTimeoutSec: '300'
 
-          - script: |
-              echo Add other tasks to build, test, and deploy your project.
-              echo See https://aka.ms/yaml
-            displayName: 'Run a multi-line script'
+          - task: SonarQubeAnalyze@5
+            inputs:
+              jdkversion: 'JAVA_HOME_11_X64'
+          
+          - task: CopyFiles@2
+            inputs:
+              Contents: '**'
+              TargetFolder: '$(Build.ArtifactStagingDirectory)'
+          
+          - task: PublishBuildArtifacts@1
+            inputs:
+              PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+              ArtifactName: 'drop'
