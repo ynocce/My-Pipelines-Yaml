@@ -9,5 +9,4 @@ stages:
     jobs:
       - job: DeployDev
         steps:
-          - script: echo "Fazendo Deploy em Dev"
-          - script: 
+          - script: echo "Fazendo Deploy em Dev
