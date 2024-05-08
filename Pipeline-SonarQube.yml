@@ -12,7 +12,7 @@ stages:
           - task: SonarCloudPrepare@1
             inputs:
               SonarCloud: 'sonarcloud'
-              organization: 'azure-devops-labtest'
+              organization: 'ynocce'
               scannerMode: 'CLI'
               configMode: 'manual'
               cliProjectKey: 'teste-devops2'
