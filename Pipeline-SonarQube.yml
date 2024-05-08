@@ -15,7 +15,7 @@ stages:
               organization: 'ynocce'
               scannerMode: 'CLI'
               configMode: 'manual'
-              cliProjectKey: 'test-My-Pipelines-Yaml'
+              cliProjectKey: 'ynocce_My-Pipelines-Yaml'
               cliProjectName: 'My-Pipelines-Yaml'
               cliSources: '.'
           - task: SonarCloudPublish@1
