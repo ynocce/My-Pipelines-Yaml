@@ -15,7 +15,7 @@ stages:
               organization: 'ynocce'
               scannerMode: 'CLI'
               configMode: 'manual'
-              cliProjectKey: 'My-Pipelines-Yaml'
+              cliProjectKey: 'test-My-Pipelines-Yaml'
               cliProjectName: 'My-Pipelines-Yaml'
               cliSources: '.'
           - task: SonarCloudPublish@1
@@ -25,12 +25,3 @@ stages:
             inputs:
               jdkversion: 'JAVA_HOME_17_X64'
           
-          - task: CopyFiles@2
-            inputs:
-              Contents: '**'
-              TargetFolder: '$(Build.ArtifactStagingDirectory)'
-          
-          - task: PublishBuildArtifacts@1
-            inputs:
-              PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-              ArtifactName: 'drop'
